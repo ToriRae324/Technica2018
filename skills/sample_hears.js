@@ -62,7 +62,7 @@ module.exports = function(controller) {
             "Look who the cat dragged in...", "Well, hello there ", "Welcome "
           ]
       
-          var response = Math.floor(Math.random(responses.length));
+          var response = Math.floor(Math.random()*responses.length);
       
           bot.reply(message, response + message.raw_message.data.personDisplayName);
         
