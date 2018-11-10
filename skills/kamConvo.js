@@ -1,6 +1,6 @@
 module.exports = function(controller) {
 
-    controller.hears(['day'], 'direct_message,direct_mention', function(bot, message) {
+    controller.hears(['^day'], 'direct_message,direct_mention', function(bot, message) {
 
         bot.startConversation(message, function(err, convo) {
             convo.say('Hi!');
@@ -16,7 +16,7 @@ module.exports = function(controller) {
     });
 
 
-    controller.hears(['question'], 'direct_message,direct_mention', function(bot, message) {
+    controller.hears(['^question'], 'direct_message,direct_mention', function(bot, message) {
 
         bot.createConversation(message, function(err, convo) {
 
