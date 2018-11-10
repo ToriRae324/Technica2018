@@ -64,7 +64,7 @@ module.exports = function(controller) {
       
           var response = responses[Math.floor(Math.random()*responses.length)];
       
-          bot.reply(message, response + message.raw_message.data.personDisplayName);
+          bot.reply(message, response);
         
             //bot.reply(message, 'Hello There!')
         
