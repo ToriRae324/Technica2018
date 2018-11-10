@@ -57,8 +57,16 @@ module.exports = function(controller) {
     });
 
     controller.hears(["^hi", "^hello"], 'direct_message,direct_mention', function(bot, message) {
+
+        var responses = [
+            "Look who the cat dragged in...", "Well, hello there ", "Welcome "
+          ]
+      
+          var response = Math.floor(Math.random(responses.length));
+      
+          bot.reply(message, response + message.raw_message.data.personDisplayName);
         
-            bot.reply(message, 'Hello There!')
+            //bot.reply(message, 'Hello There!')
         
     });
 
