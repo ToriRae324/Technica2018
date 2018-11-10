@@ -7,7 +7,7 @@ module.exports = function(controller) {
 
             convo.ask('How has your day been?', function(response, convo) {
 
-                convo.say('Ahh! I am having' + response.text + 'day too!');
+                convo.say('Ahh! I am having' + response.text + ' day too!');
                 convo.next();
 
             });
