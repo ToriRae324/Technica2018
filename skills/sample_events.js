@@ -22,7 +22,7 @@ module.exports = function(controller) {
 
     var response = Math.floor(Math.random(responses.length));
 
-    bot.reply(message, response + message.raw_message.data.personDisplayName);
+    bot.reply(message, response);
 
   });
 
