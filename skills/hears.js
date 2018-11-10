@@ -42,6 +42,27 @@ module.exports = function(controller) {
         
     });
 
+
+    // profanity filter
+    controller.hears(['(.*)'], 'direct_message,direct_mention', function(bot, message) {
+
+        var responses = [
+            "Whoa! Watch your profanity!", "Hey, don't be saying that!","Go wash your mouth!", "Shame!"
+          ];
+      
+          var response = responses[Math.floor(Math.random()*responses.length)];
+
+
+        if (message.match[0]) {
+
+            if (wordfilter.blacklisted(message.match[0])) {
+                bot.reply(message, response);
+            }
+        }
+            
+        
+    });
+
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
