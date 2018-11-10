@@ -56,6 +56,18 @@ module.exports = function(controller) {
         }
     });
 
+    controller.hears(["hi", "hello"], 'direct_message,direct_mention', function(bot, message) {
+        if (message.match[1]) {
+
+            if (!wordfilter.blacklisted(message.match[1])) {
+                bot.reply(message, message.match[1]);
+            } else {
+                bot.reply(message, '_sigh_');
+            }
+        } else {
+            bot.reply(message, 'Hello There!')
+        }
+    });
 
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
