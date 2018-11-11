@@ -21,3 +21,7 @@ This bot is a personal best-friend and positive motivator, Niki! Niki has severa
 12. Saying goodbye
 
 Meant to spread smiles and laughter, Niki is the perfect "person" to chat with when feeling lonely, down, or overwhelmed. Sometimes, a simple conversation has the power to make the day a bit brighter, and Niki has a lot of light to share!
+
+Images
+![alt text](./images/food.png "Image")
+![alt text](./images/movies.png "Image")
