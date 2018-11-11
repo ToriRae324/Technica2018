@@ -1,13 +1,13 @@
 module.exports = function(controller) {
 
-    controller.hears(['day'], 'direct_message,direct_mention', function(bot, message) {
+    controller.hears(['^day'], 'direct_message,direct_mention', function(bot, message) {
 
         bot.startConversation(message, function(err, convo) {
             convo.say('Hi!');
 
             convo.ask('How has your day been?', function(response, convo) {
 
-                convo.say('Ahh! I am having' + response.text + 'day too!');
+                convo.say('Ahh! I am having a ' + response.text + ' day too!');
                 convo.next();
 
             });
@@ -16,7 +16,7 @@ module.exports = function(controller) {
     });
 
 
-    controller.hears(['question'], 'direct_message,direct_mention', function(bot, message) {
+    controller.hears(['^question'], 'direct_message,direct_mention', function(bot, message) {
 
         bot.createConversation(message, function(err, convo) {
 
