@@ -14,23 +14,23 @@ module.exports = function(controller) {
         });
 
     });
+    
 
 
     controller.hears(['today'], 'direct_message,direct_mention', function(bot, message) {
 
         bot.createConversation(message, function(err, convo) {
 
-            
 
             // create a path for when a user says GOOD
             convo.addMessage({
                     text: 'That is fantastic!',
-            },'positive_thread');
+            },'yes_thread');
 
             // create a path for when a user says BAD
             convo.addMessage({
                 text: 'I am so sorry! Life can be difficult sometimes. I promise that things will get better.',
-            },'negative_thread');
+            },'no_thread');
 
             // create a path where neither option was matched
             convo.addMessage({
@@ -40,15 +40,15 @@ module.exports = function(controller) {
             // Create a yes/no question in the default thread...
             convo.ask('How are you?', [
                 {
-                    pattern:  bot.utternaces.positive,
+                    pattern:  bot.utternaces.yes,
                     callback: function(response, convo) {
-                        convo.gotoThread('positive_thread');
+                        convo.gotoThread('yes_thread');
                     },
                 },
                 {
-                    pattern:  bot.utterances.negative,
+                    pattern:  bot.utterances.no,
                     callback: function(response, convo) {
-                        convo.gotoThread('negative_thread');
+                        convo.gotoThread('no_thread');
                     },
                 },
                 {
@@ -75,91 +75,41 @@ module.exports = function(controller) {
 
     });
 
-    //Movies
-    controller.hears(['What is your favorite movie?'], 'direct_message,direct_mention', function(bot, message) {
+    controller.hears(['I am not ok']), 'direct_message,direct_mention', function(bot, message) {
+        bot.reply(message, 'If you are safe and simply need a boost of happiness, ask for advice or a joke from me, and I will try to deliver! If you feel at all at risk of harm, take a look at the following help-lines. For emergencies, call 911. For a crisis hotline, call 800-273-8255. For the suicide and depression hotline, call 800-784-2433.')
+    }
+
+    //Are you ok?
+    controller.hears(['I need help'], 'direct_message,direct_mention', function(bot, message) {
 
         bot.createConversation(message, function(err, convo) {
 
-            // Titanic
+            // if they are OK
             convo.addMessage({
-                    text: 'We have the same favorite movie?! No way!',
-            },'titanic_thread');
+                    text: 'That is good. I just wanted to make sure! If you ever are in serious circumstances and need help, just text me, "I am not ok."',
+            },'yes_thread');
 
-            // Star Wars
+            // if they are NOT OK
             convo.addMessage({
-                text: 'I love Star Wars! May the force be with you!',
-            },'starWars_thread');
+                text: 'Everyone reaches a time when things feel as though they are falling apart, unloved, and unimportant, except I can promise you that you are cherished and mean the world to people. If you are safe and simply need a boost of happiness, ask for advice or a joke from me, and I will try to deliver! If you feel at all at risk of harm, take a look at the following help-lines. For emergencies, call 911. For a crisis hotline, call 800-273-8255. For the suicide and depression hotline, call 800-784-2433.',
+            },'no_thread');
 
-            // Jaws
+            //If their response is not within parameters 
             convo.addMessage({
-                text: 'Oooh, sharks are scary!',
-            },'jaws_thread');
-
-            // The Shining
-            convo.addMessage({
-                text: 'Aah! That is a scary movie!',
-            },'theShining_thread');
-
-            // Back to the Future
-            convo.addMessage({
-                text: 'Oooh, I love sci-fi movies!',
-            },'backToTheFuture_thread');
-
-            // Avengers
-            convo.addMessage({
-                text: 'Super hero movies are awesome!',
-            },'avengers_thread');
-
-            // Lord of the Rings
-            convo.addMessage({
-                text: 'Those movies are great! My favorite character is Frodo.',
-            },'lordOfTheRings_thread');
-
-            convo.addMessage({
-                text: "I do not think I have seen that one! If you think it is good, I will make sure to watch it sometime soon!",
+                text: "I am very sorry, except I do not understand. If you need help, please text me, 'I am not ok.'",
             }, 'default_response');
 
-            convo.ask('Hm... My favorite movie would probably have to be Titanic. That movie can make even a robot cry. What is your favorite movie?', [
+            convo.ask('Are you ok?', [
                 {
-                    pattern:  "Titanic",
+                    pattern:  bot.utterances.yes,
                     callback: function(response, convo) {
-                        convo.gotoThread('titanic_thread');
+                        convo.gotoThread('yes_thread');
                     },
                 },
                 {
-                    pattern:  "Star Wars",
+                    pattern:  bot.utterances.no,
                     callback: function(response, convo) {
-                        convo.gotoThread('starWars_thread');
-                    },
-                },
-                {
-                    pattern: "Jaws",
-                    callback: function(response, convo) {
-                        convo.gotoThread('jaws_thread');
-                    },
-                },
-                {
-                    pattern:  "The Shining",
-                    callback: function(response, convo) {
-                        convo.gotoThread('theShining_thread');
-                    },
-                },
-                {
-                    pattern:  "Back to the Future",
-                    callback: function(response, convo) {
-                        convo.gotoThread('backToTheFuture_thread');
-                    },
-                },
-                {
-                    pattern:  "Avengers",
-                    callback: function(response, convo) {
-                        convo.gotoThread('avengers_thread');
-                    },
-                },
-                {
-                    pattern:  "Lord of the Rings",
-                    callback: function(response, convo) {
-                        convo.gotoThread('lordOfTheRings_thread');
+                        convo.gotoThread('no_thread');
                     },
                 },
                 {
@@ -177,7 +127,7 @@ module.exports = function(controller) {
 
                 if (convo.successful()) {
                     // this still works to send individual replies...
-                    bot.reply(message, 'You have a wonderful taste in movies! We should have a movie marathon sometimes.');
+                    bot.reply(message, 'Everyday is a day to be brand-new. You do not have to let the past define you, instead, race towards your future. It certainly is bright.');
                 }
 
             });
@@ -186,7 +136,7 @@ module.exports = function(controller) {
     });
 
       //Movies
-    controller.hears(['What is your favorite movie?'], 'direct_message,direct_mention', function(bot, message) {
+    controller.hears(['movies'], 'direct_message,direct_mention', function(bot, message) {
 
         bot.createConversation(message, function(err, convo) {
 
@@ -296,7 +246,7 @@ module.exports = function(controller) {
     });
 
     //TV Shows
-    controller.hears(['What is your favorite TV show?'], 'direct_message,direct_mention', function(bot, message) {
+    controller.hears(['tv shows'], 'direct_message,direct_mention', function(bot, message) {
 
         bot.createConversation(message, function(err, convo) {
 
@@ -324,7 +274,7 @@ module.exports = function(controller) {
                 text: "I do not think I have seen that one! If you think it is good, I will make sure to watch it sometime soon!",
             }, 'default_response');
 
-            convo.ask('My favorite show is the Office! Dwight is my favorite character.', [
+            convo.ask('My favorite show is the Office! Dwight is my favorite character. What is your favorite show?', [
                 {
                     pattern:  "The Office",
                     callback: function(response, convo) {
@@ -364,7 +314,7 @@ module.exports = function(controller) {
 
                 if (convo.successful()) {
                     // this still works to send individual replies...
-                    bot.reply(message, 'You have a wonderful taste in movies! We should have a movie marathon sometimes.');
+                    bot.reply(message, 'You have a wonderful taste in shows! We should have a movie marathon sometimes.');
                 }
 
             });

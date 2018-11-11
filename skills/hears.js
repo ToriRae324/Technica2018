@@ -7,14 +7,16 @@ module.exports = function(controller) {
     // Hears "greeting"
     controller.hears(["^hi", "^hello", "^hey", "^what's up?", "^yo", "^howdy"], 'direct_message,direct_mention', function(bot, message) {
 
-        var responses = [
-            "Look who the cat dragged in...", "Well, hello there!", "Back at ya!", "Cheerio!", "Oh... it's you again.",
-            "Hello! you look fabulous today!", "Good day!", "Hi! What's up?", "Hello, it's great to see you!", "Howdy, partner!", "Ah! Oh, you scared me!", "Yay! You're here! You just made my day!" , "Why, hello there!", "Yo!"
-          ];
-      
-          var response = responses[Math.floor(Math.random()*responses.length)];
-      
-          bot.reply(message, response);      
+            //This randomizes the selection of text. 
+
+            var responses = [
+                "Look who the cat dragged in...", "Well, hello there!", "Back at ya!", "Cheerio!", "Oh... it's you again.",
+                "Hello! you look fabulous today!", "Good day!", "Hi! What's up?", "Hello, it's great to see you!", "Howdy, partner!", "Ah! Oh, you scared me!", "Yay! You're here! You just made my day!" , "Why, hello there!", "Yo!"
+              ];
+          
+              var response = responses[Math.floor(Math.random()*responses.length)];
+
+              bot.reply(message, response);    
         
     });
 
