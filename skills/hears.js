@@ -35,24 +35,24 @@ module.exports = function(controller) {
 
 
     // profanity filter
-    // controller.hears(['(.*)'], 'direct_message,direct_mention', function(bot, message) {
+    controller.hears(['(.*)'], 'direct_message,direct_mention', function(bot, message) {
 
-    //     var responses = [
-    //         "Whoa! Watch your profanity!", "Hey, don't be saying that!","Go wash your mouth!", "Shame!"
-    //       ];
+        var responses = [
+            "Whoa! Watch your profanity!", "Hey, don't be saying that!","Go wash your mouth!", "Shame!"
+          ];
       
-    //       var response = responses[Math.floor(Math.random()*responses.length)];
+          var response = responses[Math.floor(Math.random()*responses.length)];
 
 
-    //     if (message.match[0]) {
+        if (message.match[0]) {
 
-    //         if (wordfilter.blacklisted(message.match[0])) {
-    //             bot.reply(message, response);
-    //         }
-    //     }
+            if (wordfilter.blacklisted(message.match[0])) {
+                bot.reply(message, response);
+            }
+        }
             
         
-    //});
+    });
 
     // Hears jokes
     controller.hears(["^joke", "^tell me a joke"], 'direct_message,direct_mention', function(bot, message) {
@@ -80,18 +80,7 @@ module.exports = function(controller) {
         
     });
 
-    // Hears 8ball
-    // controller.hears(["^8ball", "^magic 8 ball", "^8 ball"], 'direct_message,direct_mention', function(bot, message) {
-
-    //     var responses = [
-    //         "It is certain.", "It is decidedly so.", "Without a doubt.", "Yes - definitely.","You may rely on it.", "As I see it, yes.", "Most likely.", "Outlook good.", "Yes.", "Signs point to yes.", "Reply hazy, try again.", "Ask again later.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again.", "Don't count on it.", "My reply is no.", "My sources say no.", "Outlook not so good.", "Very doubtful."
-    //       ];
-      
-    //       var response = responses[Math.floor(Math.random()*responses.length)];
-      
-    //       bot.reply(message, response);      
-        
-    // });
+    
   
 
     // Hears love
