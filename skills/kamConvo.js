@@ -16,13 +16,11 @@ module.exports = function(controller) {
     });
 
 
-    controller.hears(['^question'], 'direct_message,direct_mention', function(bot, message) {
+    controller.hears(['today'], 'direct_message,direct_mention', function(bot, message) {
 
         bot.createConversation(message, function(err, convo) {
 
-            if(err){
-                convo.say(err);
-            }
+            
 
             // create a path for when a user says GOOD
             convo.addMessage({
