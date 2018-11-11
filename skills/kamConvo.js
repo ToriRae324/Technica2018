@@ -20,6 +20,10 @@ module.exports = function(controller) {
 
         bot.createConversation(message, function(err, convo) {
 
+            if(err){
+                convo.say(err);
+            }
+
             // create a path for when a user says GOOD
             convo.addMessage({
                     text: 'That is fantastic!',
