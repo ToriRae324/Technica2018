@@ -16,7 +16,7 @@ module.exports = function(controller) {
     });
 
 
-    controller.hears(['my-day'], 'direct_message,direct_mention', function(bot, message) {
+    controller.hears(['today'], 'direct_message,direct_mention', function(bot, message) {
 
         bot.createConversation(message, function(err, convo) {
 
