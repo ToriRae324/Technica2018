@@ -92,8 +92,20 @@ module.exports = function(controller) {
     //       bot.reply(message, response);      
         
     // });
+  
 
+    // Hears love
+    controller.hears(["^i hate (.*)"], 'direct_message,direct_mention', function(bot, message) {
 
+        var responses = [
+            "Thats a bit harsh.", "Woah there!", "Hate is a strong word.", "That's an interesting opinion.", "Don't be rude :(", "Spread love not hate.", "Hey! Don't be like that."
+          ];
+      
+          var response = responses[Math.floor(Math.random()*responses.length)];
+      
+          bot.reply(message, response);      
+        
+    });
     
     
 
