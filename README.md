@@ -1,5 +1,10 @@
 # Technica2018
-Hello! This hack utilizes Cisco Webex Team's Chat Bot! Specifically, a personal best-friend and positive motivator, Niki! Niki has several skills to communicate with users, including the following:
+
+
+## Hack : Use the Botkit SDK (https://botkit.ai/) to develop a chat bot that runs on the Cisco Webex Teams platform.
+
+This bot is a personal best-friend and positive motivator, Niki! Niki has several skills to communicate with users, including the following:
+
 1. Saying hello when greeted
 2. Telling a joke if asked
 3. Responding to statements of "I love" and "I hate"
