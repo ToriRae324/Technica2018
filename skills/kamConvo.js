@@ -315,7 +315,7 @@ module.exports = function(controller) {
 
                 if (convo.successful()) {
                     // this still works to send individual replies...
-                    bot.reply(message, 'You have a wonderful taste in shows! We should binge watch one day.');
+                    bot.reply(message, 'You have good taste! We should binge watch a season!');
                 }
 
             });

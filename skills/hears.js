@@ -41,25 +41,25 @@ module.exports = function(controller) {
     });
 
 
-    // profanity filter
-    controller.hears(['(.*)'], 'direct_message,direct_mention', function(bot, message) {
+    // // profanity filter
+    // controller.hears(['(.*)'], 'direct_message,direct_mention', function(bot, message) {
 
-        var responses = [
-            "Whoa! Watch your profanity!", "Hey, don't be saying that!","Go wash your mouth!", "Shame!"
-          ];
+    //     var responses = [
+    //         "Whoa! Watch your profanity!", "Hey, don't be saying that!","Go wash your mouth!", "Shame!"
+    //       ];
       
-          var response = responses[Math.floor(Math.random()*responses.length)];
+    //       var response = responses[Math.floor(Math.random()*responses.length)];
 
 
-        if (message.match[0]) {
+    //     if (message.match[0]) {
 
-            if (wordfilter.blacklisted(message.match[0])) {
-                bot.reply(message, response);
-            }
-        }
+    //         if (wordfilter.blacklisted(message.match[0])) {
+    //             bot.reply(message, response);
+    //         }
+    //     }
             
         
-    });
+    // });
 
     // Hears jokes
     controller.hears(["^joke", "^tell me a joke"], 'direct_message,direct_mention', function(bot, message) {
@@ -103,6 +103,20 @@ module.exports = function(controller) {
         
     });
     
+    // Hears love
+    controller.hears(["^coin flip", "^flip a coin"], 'direct_message,direct_mention', function(bot, message) {
+
+        var flip = Math.floor(Math.random()*2);
+        var response = ""
+          if(flip === 0){
+              response = "HEADS!";
+          } else {
+              response = "TAILS!";
+          };
+      
+          bot.reply(message, response);      
+        
+    });
     
 
 };
