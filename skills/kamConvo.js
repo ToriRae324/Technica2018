@@ -75,9 +75,10 @@ module.exports = function(controller) {
 
     });
 
-    controller.hears(['I am not ok']), 'direct_message,direct_mention', function(bot, message) {
-        bot.reply(message, 'If you are safe and simply need a boost of happiness, ask for advice or a joke from me, and I will try to deliver! If you feel at all at risk of harm, take a look at the following help-lines. For emergencies, call 911. For a crisis hotline, call 800-273-8255. For the suicide and depression hotline, call 800-784-2433.')
-    }
+    controller.hears(['I am not ok'], 'direct_message,direct_mention', function(bot, message) {
+
+        bot.reply(message, 'If you are safe and simply need a boost of happiness, ask for advice or a joke from me, and I will try to deliver! If you feel at all at risk of harm, take a look at the following help-lines. For emergencies, call 911. For a crisis hotline, call 800-273-8255. For the suicide and depression hotline, call 800-784-2433.');
+    });
 
     //Are you ok?
     controller.hears(['I need help'], 'direct_message,direct_mention', function(bot, message) {
