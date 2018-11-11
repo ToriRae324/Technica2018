@@ -25,8 +25,6 @@ module.exports = function(controller) {
             // create a path for when a user says GOOD
             convo.addMessage({
                     text: 'That is fantastic!',
-                    action: 'stop', // this marks the converation as over
-
             },'positive_thread');
 
             // create a path for when a user says BAD
@@ -39,7 +37,6 @@ module.exports = function(controller) {
             // this message has an action field, which directs botkit to go back to the `default` thread after sending this message.
             convo.addMessage({
                 text: 'Oh dear!',
-                action: 'default',
             },'bad_response');
 
             // Create a yes/no question in the default thread...
