@@ -16,7 +16,14 @@ module.exports = function(controller) {
           
               var response = responses[Math.floor(Math.random()*responses.length)];
 
-              bot.reply(message, response);    
+              var convoStarters = [
+                  "What do you want to talk about today?", "Anything on your mind that you want to discuss?", "What's up that you want to discuss?", "What should we chat about now?", "What's up?"
+                ]
+
+                var convoStarter = convoStarters[Math.floor(Math.random()*convoStarters.length)];
+
+              bot.reply(message, response); 
+              bot.reply(message, convoStarter);   
         
     });
 
