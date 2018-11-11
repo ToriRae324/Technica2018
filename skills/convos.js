@@ -37,7 +37,6 @@ module.exports = function(controller) {
             // this message has an action field, which directs botkit to go back to the `default` thread after sending this message.
             convo.addMessage({
                 text: "*shrug* Could be better. Could be worse.",
-                action: 'default',
             },'other_response');
 
             // Create a yes/no question in the default thread...
