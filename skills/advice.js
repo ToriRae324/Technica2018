@@ -40,16 +40,5 @@ module.exports = function(controller) {
         
     });
 
-    // relationship advice
-    controller.hears(["^relationship advice", "^I need work advice"], 'direct_message,direct_mention', function(bot, message) {
-        
-        var responses = [
-            "Always be kind to anyone, you’ll never know how deep you touch someone’s life.", "To handle yourself, use your head; to handle others, use your heart.", "True love stories never have endings.", "Walking with a friend in the dark is better than walking alone in the light", "One of the most beautiful qualities of true friendship is to understand and to be understood.", "A good friend is like a four-leaf clover: hard to find and lucky to have."
-            ];
-        
-        var response = responses[Math.floor(Math.random()*responses.length)];
-      
-        bot.reply(message, response);      
-        
-    });
+    
 }
