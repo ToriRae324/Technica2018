@@ -96,6 +96,20 @@ module.exports = function(controller) {
         
     });
     
+    // Hears love
+    controller.hears(["^coin flip", "^flip a coin"], 'direct_message,direct_mention', function(bot, message) {
+
+        var flip = Math.floor(Math.random()*2);
+        var response = ""
+          if(flip === 0){
+              response = "HEADS!";
+          } else {
+              response = "TAILS!";
+          };
+      
+          bot.reply(message, response);      
+        
+    });
     
 
 };
