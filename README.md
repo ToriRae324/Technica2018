@@ -3,7 +3,7 @@
 
 ## Hack : Use the Botkit SDK (https://botkit.ai/) to develop a chat bot that runs on the Cisco Webex Teams platform.
 
-### You can tank to her on Cisco Teams: Niki@webex.bot
+### You can talk to her on Cisco Teams: Niki@webex.bot
 
 This bot is a personal best-friend and positive motivator, Niki! Niki has several skills to communicate with users, including the following:
 
