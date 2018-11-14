@@ -22,19 +22,19 @@ This bot is a personal best-friend and positive motivator, Niki! Niki has severa
 
 Meant to spread smiles and laughter, Niki is the perfect "person" to chat with when feeling lonely, down, or overwhelmed. Sometimes, a simple conversation has the power to make the day a bit brighter, and Niki has a lot of light to share!
 
-Images
+### Images
 
 "I need help"
-![alt text](./images/help.png "Help")
+* ![alt text](./images/help.png "Help")
 
 "8ball"
-![alt text](./images/8ball.png "8Ball")
+* ![alt text](./images/8ball.png "8Ball")
 
 "Food"
-![alt text](./images/food.png "Food")
+* ![alt text](./images/food.png "Food")
 
 "Movies"
-![alt text](./images/movies.png "Movies")
+* ![alt text](./images/movies.png "Movies")
 
 "I Love ", "I hate"
-![alt text](./images/lovehate.png "Love and Hate")
+* ![alt text](./images/lovehate.png "Love and Hate")
